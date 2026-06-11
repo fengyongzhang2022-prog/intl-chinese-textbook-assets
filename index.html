@@ -3,185 +3,246 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>第9章拓展阅读：核心概念与电子资源</title>
+  <title>第9章拓展阅读：概念地图与数字资源</title>
   <style>
-    :root {
+    :root{
       color-scheme: light;
-      --ink: #222;
-      --muted: #666;
-      --line: #d8d8d8;
-      --panel: #f7f7f5;
-      --accent: #7b1f1f;
+      --ink:#1d1d1f; --muted:#5c6066; --line:#e2e2e5; --panel:#f6f7f9;
+      --a:#b5452f;  --a-soft:#fbf1ec;   /* 线索一：专门用途中文（赤陶） */
+      --b:#2b4c7e;  --b-soft:#eef2f8;   /* 线索二：区域国别中文教育（靛蓝） */
+      --shadow:0 1px 3px rgba(20,20,30,.07), 0 6px 18px rgba(20,20,30,.04);
     }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", Arial, sans-serif;
-      color: var(--ink);
-      background: #fff;
-      line-height: 1.72;
+    *{box-sizing:border-box;}
+    html{-webkit-text-size-adjust:100%;}
+    body{
+      margin:0;
+      font-family:"Microsoft YaHei","Noto Sans CJK SC","PingFang SC","Source Han Sans SC",Arial,sans-serif;
+      color:var(--ink); background:#fafafb; font-size:18px; line-height:1.85;
+      -webkit-font-smoothing:antialiased; overflow-x:hidden;
     }
+    main{width:min(1000px,calc(100% - 36px));margin:0 auto;padding:46px 0 72px;}
 
-    main {
-      width: min(920px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 44px 0 64px;
+    header{margin-bottom:30px;}
+    .eyebrow{color:var(--a);font-size:15px;font-weight:600;letter-spacing:.3px;margin:0 0 10px;}
+    h1{font-family:"Songti SC",SimSun,serif;font-size:38px;font-weight:700;line-height:1.22;margin:0;letter-spacing:.5px;}
+    .lead{color:var(--muted);font-size:16.5px;line-height:1.8;margin:16px 0 0;max-width:64em;}
+    .lead b{color:var(--ink);}
+    .rule{height:3px;background:linear-gradient(90deg,var(--a) 0 48%,var(--b) 52% 100%);border-radius:3px;margin:20px 0 0;}
+
+    h2{font-family:"Songti SC",SimSun,serif;font-size:27px;font-weight:700;margin:46px 0 8px;line-height:1.35;}
+    h2 .idx{display:inline-block;color:var(--a);margin-right:10px;}
+    h3{font-size:20px;font-weight:700;margin:26px 0 10px;color:#2a2a2e;}
+    p{margin:10px 0;}
+    .hint{color:var(--muted);font-size:15.5px;margin-top:14px;}
+
+    /* ---------- 概念地图 ---------- */
+    .map{margin:18px 0 6px;}
+    .root{
+      background:linear-gradient(135deg,#1f3760,#2b4c7e);color:#fff;text-align:center;
+      border-radius:14px;padding:20px 18px;box-shadow:var(--shadow);
     }
-
-    header {
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 18px;
-      margin-bottom: 28px;
+    .root .t{font-size:21px;font-weight:700;letter-spacing:.5px;}
+    .root .s{font-size:15px;opacity:.85;margin-top:7px;}
+    .branches{display:flex;gap:22px;margin-top:22px;}
+    .branch{
+      flex:1;min-width:0;background:#fff;border:1px solid var(--line);
+      border-radius:14px;padding:6px 18px 18px;box-shadow:var(--shadow);
     }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 14px;
-      letter-spacing: 0;
-      margin: 0 0 8px;
+    .branch.a{border-top:5px solid var(--a);}
+    .branch.b{border-top:5px solid var(--b);}
+    .bhead{font-weight:700;font-size:19px;margin:16px 0 4px;}
+    .branch.a .bhead{color:var(--a);}
+    .branch.b .bhead{color:var(--b);}
+    .bhead em{display:block;font-style:normal;font-weight:400;font-size:14.5px;color:var(--muted);margin-top:3px;}
+    .stage{position:relative;margin:14px 0 0;padding:10px 0 12px 16px;border-left:2px solid var(--line);}
+    .stage:last-child{padding-bottom:2px;}
+    .stage .lab{
+      display:inline-block;font-size:13.5px;font-weight:700;color:#fff;border-radius:6px;
+      padding:2px 10px;margin-right:8px;vertical-align:2px;
     }
-
-    h1 {
-      font-family: SimSun, "Songti SC", serif;
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.25;
-      margin: 0;
+    .branch.a .stage .lab{background:var(--a);}
+    .branch.b .stage .lab{background:var(--b);}
+    .stage .c{font-weight:600;font-size:17px;}
+    .stage .from{color:var(--muted);font-size:15px;}
+    .chips{margin-top:9px;display:flex;flex-wrap:wrap;gap:8px;}
+    .chips span{
+      font-size:15px;border:1px solid var(--line);border-radius:18px;padding:4px 13px;
+      background:#fff;line-height:1.5;
     }
-
-    h2 {
-      font-family: SimSun, "Songti SC", serif;
-      font-size: 24px;
-      border-left: 6px solid var(--accent);
-      padding-left: 12px;
-      margin: 34px 0 14px;
-      line-height: 1.35;
+    .branch.a .chips span{background:var(--a-soft);border-color:#f0ddd4;}
+    .branch.b .chips span{background:var(--b-soft);border-color:#d9e2ef;}
+    .chips.sub span{background:var(--panel);color:#555;}
+    .link{
+      margin:22px 0 4px;background:#fff;border:1px solid var(--line);border-left:5px solid #888;
+      border-radius:12px;padding:16px 18px;font-size:16px;line-height:1.8;box-shadow:var(--shadow);
     }
+    .link b{color:var(--ink);}
 
-    h3 {
-      font-size: 18px;
-      margin: 22px 0 10px;
+    /* ---------- 表格 / 列表 ---------- */
+    table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0 26px;table-layout:fixed;
+      border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+    th,td{border-bottom:1px solid var(--line);padding:13px 16px;vertical-align:top;word-break:break-word;font-size:16.5px;line-height:1.72;}
+    tr:last-child th,tr:last-child td{border-bottom:none;}
+    th{width:30%;background:var(--panel);text-align:left;font-weight:700;border-right:1px solid var(--line);}
+    ul.mini{padding-left:0;list-style:none;margin:14px 0 8px;}
+    ul.mini li{
+      margin:10px 0;padding:13px 16px;background:#fff;border:1px solid var(--line);
+      border-left:4px solid var(--b);border-radius:10px;font-size:16.5px;line-height:1.78;box-shadow:var(--shadow);
     }
+    ul.mini li b{color:var(--b);}
+    ol{padding-left:1.3em;margin:12px 0 20px;}
+    ol li{margin:11px 0;font-size:16.5px;line-height:1.8;padding-left:4px;}
 
-    p {
-      margin: 8px 0;
+    footer{border-top:1px solid var(--line);color:var(--muted);font-size:14.5px;margin-top:44px;padding-top:16px;}
+
+    @media (max-width:720px){
+      body{font-size:17px;}
+      main{width:calc(100% - 28px);padding:34px 0 56px;}
+      h1{font-size:29px;} h2{font-size:23px;} h3{font-size:18.5px;}
+      .branches{flex-direction:column;gap:16px;}
+      .branch{padding:6px 15px 16px;}
+      th{width:38%;}
+      .root{padding:18px 16px;} .root .t{font-size:19px;} .root .s{font-size:14px;}
     }
-
-    .note {
-      color: var(--muted);
-      font-size: 15px;
-      margin-top: 12px;
+    /* 窄屏：表格改为上下堆叠的“词条”式，避免挤压与横向滚动 */
+    @media (max-width:520px){
+      main{width:calc(100% - 24px);padding:28px 0 48px;}
+      h1{font-size:26px;} h2{font-size:21px;} .eyebrow{font-size:14px;}
+      table{display:block;}
+      thead,tbody,tr{display:block;width:100%;}
+      th,td{display:block;width:100%;border-right:none;font-size:16px;padding:11px 14px;}
+      th{border-bottom:none;}
+      tr:last-child td{border-bottom:none;}
+      ul.mini li,ol li{font-size:16px;}
+      .stage .c{font-size:16.5px;}
+      .chips span{font-size:14.5px;padding:4px 12px;}
+      .link{font-size:15.5px;}
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 12px 0 22px;
-      table-layout: fixed;
-    }
-
-    th, td {
-      border: 1px solid var(--line);
-      padding: 10px 12px;
-      vertical-align: top;
-      word-break: break-word;
-    }
-
-    th {
-      width: 28%;
-      background: var(--panel);
-      text-align: left;
-      font-weight: 700;
-    }
-
-    ol {
-      padding-left: 1.4em;
-      margin: 8px 0 18px;
-    }
-
-    li {
-      margin: 8px 0;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 36px;
-      padding-top: 14px;
-    }
-
-    @media print {
-      main { width: 100%; padding: 20px; }
-      body { font-size: 12pt; }
+    @media print{
+      body{background:#fff;font-size:12pt;}
+      main{width:100%;padding:18px;}
+      .branches{flex-direction:row;}
+      .branch,.root,.link,table,ul.mini li{box-shadow:none;}
     }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <p class="eyebrow">第9章拓展阅读</p>
-      <h1>核心概念地图与数字工具电子资源</h1>
-      <p class="note">本页供教材二维码拓展阅读使用，正文不重复呈现，仅作为课后复习、备课检索和延伸阅读材料。</p>
+      <p class="eyebrow">第9章　专门用途中文与区域国别中文教育</p>
+      <h1>本章概念地图与数字资源</h1>
+      <p class="lead">本页供教材二维码拓展使用，正文不重复展开，仅作课后复习、备课检索与延伸阅读之用。全章围绕两条互补线索：<b>专门用途中文</b>（以用途、领域、任务为轴）与<b>区域国别中文教育</b>（以国家、地区、制度与语言生活为轴）。</p>
+      <div class="rule"></div>
     </header>
 
     <section>
-      <h2>一、核心概念地图</h2>
+      <h2><span class="idx">一</span>本章概念地图</h2>
+      <div class="map">
+        <div class="root">
+          <div class="t">国际中文教育的精准化发展</div>
+          <div class="s">两条并列而互补的线索　·　用途轴 × 国别轴</div>
+        </div>
 
-      <h3>1. 概念辨析</h3>
+        <div class="branches">
+          <!-- 线索一 -->
+          <div class="branch a">
+            <div class="bhead">线索一　专门用途中文（CSP）<em>面向特定领域与任务的课程设计取向</em></div>
+
+            <div class="stage"><span class="lab">定位</span><span class="c">专门用途中文＝“通道课程”</span><span class="from"> ← 源于专门用途语言教学（ESP→CSP）</span></div>
+            <div class="stage"><span class="lab">边界</span><span class="c">目标语言／工具语言</span><span class="from"> → 区分“专门用途中文”与“中文+”“+中文”</span></div>
+            <div class="stage"><span class="lab">分类</span><span class="c">学术用途中文／行业用途中文</span></div>
+            <div class="stage"><span class="lab">起点</span><span class="c">学习者需求分析</span>
+              <div class="chips"><span>目标任务分析</span><span>现有能力分析</span><span>学习条件分析</span></div>
+              <div class="chips sub"><span>目标要求</span><span>能力差距</span><span>学习期待</span></div>
+            </div>
+            <div class="stage"><span class="lab">教什么</span><span class="c">领域语言分析</span>
+              <div class="chips"><span>语域</span><span>体裁</span><span>任务</span></div>
+            </div>
+            <div class="stage"><span class="lab">目标与评价</span><span class="c">逆向设计 → 表现性测评</span><span class="from"> ＋对接《职业中文能力等级标准》</span></div>
+            <div class="stage"><span class="lab">怎么教</span><span class="c">三种课程模式</span>
+              <div class="chips"><span>任务型</span><span>内容依托式（CBI／CLAC）</span><span>速成型岗位中文</span></div>
+              <div class="chips sub"><span>课前·课中·课后·课外</span><span>差异化教学</span></div>
+            </div>
+            <div class="stage"><span class="lab">支撑</span><span class="c">教材 · 双师/多师协同 · 协同育人</span><span class="from">（鲁班工坊·中文工坊）</span></div>
+          </div>
+
+          <!-- 线索二 -->
+          <div class="branch b">
+            <div class="bhead">线索二　区域国别中文教育<em>对象国本地的中文教育生态研究</em></div>
+
+            <div class="stage"><span class="lab">学科基础</span><span class="c">区域国别学</span><span class="from"> ＝ “区域”与“国别”两种分析单元</span></div>
+            <div class="stage"><span class="lab">内涵</span><span class="c">区域国别中文教育</span><span class="from"> ＝ 对象国本地的中文教育生态（区别于来华留学）</span></div>
+            <div class="stage"><span class="lab">定位框架</span><span class="c">全球中文教育同心圈</span>
+              <div class="chips"><span>内圈（语文教育）</span><span>中圈（华文教育）</span><span>外圈（中文作外语）</span></div>
+            </div>
+            <div class="stage"><span class="lab">两种基本形态</span><span class="c">华文教育　／　中文作为外语·第二语言教育</span></div>
+            <div class="stage"><span class="lab">生态分析</span><span class="c">中文教学环境分析的八个维度</span>
+              <div class="chips"><span>政策地位</span><span>教育体制</span><span>语言生态</span><span>学习者结构</span><span>课程资源</span><span>师资条件</span><span>社区与行业需求</span><span>文化观念</span></div>
+            </div>
+            <div class="stage"><span class="lab">华文教育差异</span><span class="c">相邻概念辨析 · 新马印比较</span>
+              <div class="chips sub"><span>华侨母语教育</span><span>华人传承语教育</span><span>本地化中文教育</span></div>
+            </div>
+            <div class="stage"><span class="lab">大纲类型</span><span class="c">语言要素型　↔　能力描述型</span>
+              <div class="chips"><span>等级标准／HSK 3.0（要素）</span><span>ACTFL／CEFR（能力）</span></div>
+            </div>
+            <div class="stage"><span class="lab">大纲研制</span><span class="c">原则与十步流程</span>
+              <div class="chips"><span>《等级标准》与国别大纲对接的四个方面</span><span>本土化的四个层级</span></div>
+            </div>
+            <div class="stage"><span class="lab">案例</span><span class="c">以美国为例</span><span class="from"> ：ACTFL 能力框架 ＋《等级标准》/HSK 内容清单</span></div>
+          </div>
+        </div>
+
+        <div class="link">两线交汇：二者并非上下位关系，而是国际中文教育精准化发展的<b>两个互补维度</b>——前者回答“面向特定领域和任务，课程怎样设计”，后者回答“不同国家和地区的大纲、目标和内容体系如何研制”。</div>
+      </div>
+      <p class="hint">读图提示：每条线索自上而下是一条“分析—设计”的链条，色块为环节标签，圆角标签为该环节的关键概念。</p>
+    </section>
+
+    <section>
+      <h2><span class="idx">二</span>核心概念速查</h2>
+
+      <h3>1. 专门用途中文（线索一）</h3>
       <table>
-        <tr><th>专门用途中文</th><td>面向特定学术、职业或行业任务的中文课程设计取向。</td></tr>
-        <tr><th>“中文+”</th><td>中文教育与专业、技能、职业教育融合的宏观教育模式。</td></tr>
-        <tr><th>目标语言</th><td>学习者把中文本身作为学习目标。</td></tr>
-        <tr><th>工具语言</th><td>学习者借助中文学习或完成其他专业任务。</td></tr>
-        <tr><th>“+中文”</th><td>专业学习居于主位，中文提供语言支持。</td></tr>
+        <tr><th>专门用途中文（CSP）</th><td>以学习者特定需求为起点，面向学术、职业或行业任务，重新组织课程目标、内容、方法与评价的教学取向；性质上是一种“通道课程”。</td></tr>
+        <tr><th>“中文+” / “+中文”</th><td>中文教育与专业、技能、职业教育融合的宏观战略与项目模式；“+中文”则以专业学习居于主位、中文提供语言支持。</td></tr>
+        <tr><th>目标语言 / 工具语言</th><td>中文本身是学习目的时为目标语言（通用中文、专门用途中文皆属此）；中文是学习其他内容的手段时为工具语言（“中文+X”）。</td></tr>
+        <tr><th>学术用途中文 / 行业用途中文</th><td>按学习者所处领域与任务划分：前者服务专业学习与学术交流，后者服务具体岗位与业务场景。</td></tr>
+        <tr><th>逆向设计 / 表现性测评</th><td>先定真实任务目标与评价证据，再设计教学；以真实或仿真任务中的表现来评价学习成效。</td></tr>
       </table>
 
-      <h3>2. 分析工具</h3>
+      <h3>2. 区域国别中文教育（线索二）</h3>
       <table>
-        <tr><th>语域</th><td>判断某一领域常用什么词语、句式和语体。</td></tr>
-        <tr><th>体裁</th><td>判断某类文本如何组织信息。</td></tr>
-        <tr><th>任务</th><td>判断学习者要用中文完成什么行动。</td></tr>
-        <tr><th>目标情景分析</th><td>分析学习者未来要面对的中文使用情境。</td></tr>
-        <tr><th>现有情况分析</th><td>判断学习者当前语言能力和专业基础。</td></tr>
-        <tr><th>学习情况分析</th><td>分析学习动机、课时、资源和媒介语条件。</td></tr>
-      </table>
-
-      <h3>3. 课程设计</h3>
-      <table>
-        <tr><th>逆向设计</th><td>先定目标和评价，再设计教学活动。</td></tr>
-        <tr><th>表现性测评</th><td>通过真实或仿真的任务表现评价学习成效。</td></tr>
-        <tr><th>任务型专门用途中文</th><td>以真实交际任务组织中文课程。</td></tr>
-        <tr><th>跨课程语言学习</th><td>在专业课中嵌入中文语言支持。</td></tr>
-        <tr><th>速成模式</th><td>面向短期急用任务，优先训练可立即使用的语言能力。</td></tr>
-        <tr><th>差异化教学</th><td>在共同目标下提供不同材料、过程和成果形式。</td></tr>
-      </table>
-
-      <h3>4. 区域国别</h3>
-      <table>
-        <tr><th>区域国别教学</th><td>根据对象国环境调整中文教学目标和方式。</td></tr>
-        <tr><th>语言生活（整体观）</th><td>把政策、使用、态度和多语关系看作相互关联的整体。</td></tr>
-        <tr><th>教学情境考察要点</th><td>从政策、教育体制、社会态度和语言使用状况考察情境。</td></tr>
-        <tr><th>一地一策</th><td>把本地条件转化为课程目标、内容、方法和评价。</td></tr>
-        <tr><th>校企协同</th><td>让岗位语料、实习场景和行业标准进入课程。</td></tr>
+        <tr><th>区域国别学</th><td>以特定国家或区域为对象、围绕现实问题综合多学科与在地材料的交叉学科；“区域”重跨国关联，“国别”重一国整体。</td></tr>
+        <tr><th>区域国别中文教育</th><td>对中国以外特定区域或国家中文教育的系统研究，关注其在当地教育体系、语言生态与政策环境中的运行，即对象国本地的中文教育生态。</td></tr>
+        <tr><th>全球中文教育同心圈</th><td>按中文作为何种通用语来教学，分内圈（语文教育）、中圈（华文教育）、外圈（中文作外语）；国际中文教育＝中圈＋外圈。</td></tr>
+        <tr><th>两种基本形态</th><td>华文教育（中文多具母语、祖语属性）与中文作为外语·第二语言教育；二者可在同一国家、学校或课堂中并存。</td></tr>
+        <tr><th>本土化的四个层级</th><td>表层（文化素材）→中层（主题任务与学习者画像）→深层（目标、评价与师资对接）→制度层（进入国民教育与修订机制）。</td></tr>
       </table>
     </section>
 
     <section>
-      <h2>二、数字工具与电子资源</h2>
+      <h2><span class="idx">三</span>关键框架速记</h2>
+      <ul class="mini">
+        <li><b>三种课程模式：</b>任务型／内容依托式（含 CBI、CLAC）／速成型岗位中文——按课程主体、学习者水平与资源条件选择。</li>
+        <li><b>大纲两种取向：</b>语言要素型（《国际中文教育中文水平等级标准》、HSK 3.0）↔ 能力描述型（ACTFL、CEFR 的“能做”）；多数大纲在二者之间。</li>
+        <li><b>标准对接四个方面（王祖嫘 2024）：</b>教学目标 · 教学内容 · 教学评价 · 语言认知。</li>
+        <li><b>国别大纲研制十步流程：</b>生态分析 → 学习者分类 → 课程定位 → 标准对接 → 目标分级 → 主题与语言要素组织 → 资源配套 → 评价设计 → 试点反馈 → 修订制度化（→ 回到生态分析，周期循环）。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="idx">四</span>数字工具与电子资源</h2>
       <ol>
-        <li><strong>语料检索与分析工具：</strong>BCC语料库、CCL语料库、AntConc、Sketch Engine、Wmatrix7/PyMUSAS。Wmatrix7可进行频率、关键词、N元语块、搭配和语义域分析，并已提供中文语义标注入口；但中文自动标注仍需人工复核，课堂中宜作为“发现线索”的工具。</li>
-        <li><strong>商务中文资源：</strong>国际中文教育资源网商务汉语相关词表、功能项目语料库和教材文本库；对外经济贸易大学图书馆“商务中文资源”栏目及“商务中文Pal（商务中文助手）”小程序说明。这类资源适合教师做商务任务词表、功能表达和教材例句的参照。</li>
-        <li><strong>自建小语料库工具链：</strong>公开或授权语料采集 → 脱敏与元数据记录 → 中文分词与自定义词典 → 频率、关键词、搭配、类联接和语步分析 → 行业专家与教师复核 → 转化为词表、句式表、任务链和评价量规。</li>
-        <li><strong>虚拟仿真与多模态资源：</strong>航空、医学、工程等高风险或强操作领域，可把VR/AR、虚拟标准化病人、虚拟客舱、虚拟工厂等做成情境任务资源包。资源包必须服务任务目标、语言产出和评价，而不能只展示场景。</li>
-        <li><strong>学习者数据与评价资源：</strong>学习平台日志、口语录音、写作修改稿、角色扮演视频、同伴评价和企业导师评价，可形成学习者语料库。其价值不在“监控学生”，而在反向修订教材：看哪些词句未掌握、哪些任务过难、哪些评价指标需要调整。</li>
+        <li><strong>语料检索与分析工具：</strong>BCC、CCL 语料库，AntConc、Sketch Engine、Wmatrix7/PyMUSAS。可做频率、关键词、N 元语块、搭配与语义域分析；中文自动标注仍需人工复核，课堂中宜作为“发现线索”的工具。</li>
+        <li><strong>商务与行业中文资源：</strong>国际中文教育资源网的商务汉语词表、功能项目语料与教材文本库；对外经济贸易大学“商务中文资源”及“商务中文 Pal”小程序，可用于编制任务词表、功能表达与教材例句。</li>
+        <li><strong>自建小语料库工具链：</strong>语料采集 → 脱敏与元数据记录 → 分词与自定义词典 → 频率·关键词·搭配·类联接·语步分析 → 行业专家与教师复核 → 转化为词表、句式表、任务链与评价量规。</li>
+        <li><strong>虚拟仿真与多模态资源：</strong>航空、医学、工程等高风险或强操作领域，可将 VR/AR、虚拟标准化病人、虚拟客舱、虚拟工厂等做成情境任务资源包；资源须服务任务目标、语言产出与评价，而非只展示场景。</li>
+        <li><strong>学习者数据与评价资源：</strong>平台日志、口语录音、写作修改稿、角色扮演视频、同伴与企业导师评价，可形成学习者语料库；其价值在于反向修订教材——发现哪些词句未掌握、哪些任务过难、哪些评价指标需调整。</li>
+        <li><strong>标准与大纲参照：</strong>《国际中文教育中文水平等级标准》（GF0025—2021）、《职业中文能力等级标准》（T/ISCLT 002—2023）、HSK 3.0；以及 ACTFL、CEFR 等海外能力框架，供大纲研制与标准对接时检索比对。</li>
       </ol>
     </section>
 
     <footer>
-      第9章《专门用途中文与区域国别教学》拓展阅读材料
+      第9章《专门用途中文与区域国别中文教育》拓展材料 · 概念地图与数字资源
     </footer>
   </main>
 </body>
