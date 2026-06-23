@@ -158,47 +158,6 @@ h1{
   font-size:14px;
   font-weight:650;
 }
-.study-flow{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-  max-width:820px;
-  margin-top:24px;
-}
-.flow-card{
-  position:relative;
-  overflow:hidden;
-  min-height:112px;
-  padding:16px 16px 14px;
-  background:rgba(255,255,255,.76);
-  border:1px solid rgba(169,184,173,.78);
-  border-radius:8px;
-  box-shadow:0 12px 32px rgba(31,42,46,.07);
-}
-.flow-card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:3px;
-  background:var(--teal);
-}
-.flow-card:nth-child(2)::before{background:var(--gold)}
-.flow-card:nth-child(3)::before{background:var(--slate)}
-.flow-card b{
-  display:block;
-  color:var(--ink-strong);
-  font-size:16px;
-  line-height:1.45;
-}
-.flow-card span{
-  display:block;
-  margin-top:7px;
-  color:#526166;
-  font-size:14px;
-  line-height:1.55;
-}
 .qr-panel{
   justify-self:end;
   width:100%;
@@ -434,6 +393,76 @@ h2{
 .activity .content{
   padding:0 20px 20px 86px;
 }
+.activity-tabs{
+  position:relative;
+}
+.tab-input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.tab-controls{
+  display:inline-flex;
+  gap:6px;
+  margin:0 0 14px;
+  padding:4px;
+  background:#eef3ee;
+  border:1px solid var(--line);
+  border-radius:7px;
+}
+.tab-controls label{
+  cursor:pointer;
+  padding:5px 12px;
+  color:#3d4c51;
+  border-radius:5px;
+  font-size:15px;
+  font-weight:750;
+  line-height:1.45;
+}
+.tab-controls label:hover{
+  color:var(--teal-deep);
+  background:rgba(255,255,255,.72);
+}
+.tab-panel{
+  display:none;
+}
+.tab-question:checked ~ .tab-controls .tab-label-question,
+.tab-answer:checked ~ .tab-controls .tab-label-answer{
+  color:#fff;
+  background:var(--teal-deep);
+}
+.tab-question:checked ~ .activity-question,
+.tab-answer:checked ~ .activity-answer{
+  display:block;
+}
+.activity-answer .answer{
+  margin-top:0;
+}
+.answer{
+  margin-top:16px;
+  padding:14px 16px;
+  background:#f8fbf8;
+  border:1px dashed rgba(169,184,173,.92);
+  border-radius:7px;
+}
+.answer h4{
+  margin:0 0 8px;
+  color:var(--teal-deep);
+  font-size:16px;
+  line-height:1.45;
+}
+.answer p{
+  margin:8px 0 0;
+  color:#4c5a5f;
+}
+.answer ol,
+.answer ul{
+  margin-top:8px;
+}
+.answer-note{
+  color:var(--muted);
+  font-size:15px;
+}
 .activity[open]{
   box-shadow:var(--shadow);
 }
@@ -455,6 +484,50 @@ li::marker{color:var(--teal-deep);font-weight:800}
 .review-block ul{
   padding-left:1.1em;
 }
+.self-check{
+  padding:0;
+  overflow:hidden;
+}
+.self-check summary{
+  cursor:pointer;
+  list-style:none;
+  padding:20px;
+}
+.self-check summary::-webkit-details-marker{display:none}
+.self-check summary:focus-visible{
+  outline:3px solid rgba(15,118,110,.24);
+  outline-offset:-4px;
+}
+.self-check summary h3{
+  margin:0;
+}
+.self-check summary p{
+  margin:9px 0 0;
+}
+.self-check summary::after{
+  content:"展开参考答案";
+  display:inline-flex;
+  margin-top:12px;
+  padding:5px 10px;
+  color:var(--teal-deep);
+  background:var(--teal-soft);
+  border-radius:6px;
+  font-size:14px;
+  font-weight:750;
+}
+.self-check[open] summary{
+  border-bottom:1px solid var(--line);
+  background:rgba(238,243,238,.72);
+}
+.self-check[open] summary::after{
+  content:"收起参考答案";
+}
+.self-check .answer{
+  margin:0;
+  border-width:0;
+  border-top:1px dashed rgba(169,184,173,.92);
+  border-radius:0;
+}
 .closing-panel{
   margin-top:36px;
   padding:24px;
@@ -475,7 +548,6 @@ li::marker{color:var(--teal-deep);font-weight:800}
 @media (max-width: 980px){
   .hero{grid-template-columns:1fr}
   .qr-panel{justify-self:start}
-  .study-flow{grid-template-columns:1fr}
   .grid.three,
   .terms-grid,
   .review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -542,26 +614,11 @@ li::marker{color:var(--teal-deep);font-weight:800}
       <div>
         <p class="eyebrow">第9章 配套学习资源</p>
         <h1><span class="title-line">专门用途中文与</span><br><span class="title-line">区域国别中文教育</span></h1>
-        <p class="meta">本页供扫码学习使用。课前看目标与概念，课中完成课堂活动，课后对照复习指南检查理解。学习重点是把真实任务和对象国情境转化为课程设计方案。</p>
+        <p class="meta">本页供扫码学习使用。课堂中完成活动任务，课后对照复习指南和参考答案检查思路。学习重点是把真实任务和对象国情境转化为课程设计方案。</p>
         <div class="hero-strip" aria-label="本章关键词">
-          <span class="tag">学习目标</span>
-          <span class="tag">概念辨析</span>
           <span class="tag">课堂任务</span>
+          <span class="tag">参考答案</span>
           <span class="tag">复习检查</span>
-        </div>
-        <div class="study-flow" aria-label="学习使用路径">
-          <div class="flow-card">
-            <b>课前 5 分钟</b>
-            <span>浏览学习目标和概念释义，带着问题阅读正文。</span>
-          </div>
-          <div class="flow-card">
-            <b>课中 25 分钟</b>
-            <span>选择一项课堂活动，小组讨论并形成可展示的方案。</span>
-          </div>
-          <div class="flow-card">
-            <b>课后 10 分钟</b>
-            <span>对照复习指南检查主线、概念关系和常见误区。</span>
-          </div>
         </div>
       </div>
       <aside class="qr-panel" aria-label="二维码资源">
@@ -574,8 +631,6 @@ li::marker{color:var(--teal-deep);font-weight:800}
   </div>
   <nav aria-label="页面导航">
     <div class="nav-inner">
-      <a href="#goals">学习目标</a>
-      <a href="#concepts">概念释义</a>
       <a href="#activities">课堂活动</a>
       <a href="#review">复习指南</a>
     </div>
@@ -583,119 +638,14 @@ li::marker{color:var(--teal-deep);font-weight:800}
 </header>
 
 <main id="main">
-  <section class="section" id="goals" aria-labelledby="goals-title">
-    <div class="section-head">
-      <div>
-        <p class="section-kicker">模块一</p>
-        <h2 id="goals-title">学习目标</h2>
-        <p class="section-note">先确认本章要解决的问题，再进入概念辨析和课堂任务。</p>
-      </div>
-      <div class="section-index">01</div>
-    </div>
-
-    <div class="grid two">
-      <article class="card goal-card">
-        <h3>理解课程定位</h3>
-        <p>说明专门用途中文的内涵、类型及其作为“通道课程”的性质。</p>
-      </article>
-      <article class="card goal-card">
-        <h3>辨析相关概念</h3>
-        <p>辨析专门用途中文与通用中文、“中文+”之间的区别和联系。</p>
-      </article>
-      <article class="card goal-card">
-        <h3>掌握设计方法</h3>
-        <p>运用需求分析、真实任务、真实语料和逆向设计开发教学活动。</p>
-      </article>
-      <article class="card goal-card">
-        <h3>形成区域国别意识</h3>
-        <p>结合对象国课程制度、学习者需求和资源条件，提出本土化中文课程方案。</p>
-      </article>
-    </div>
-
-    <div class="path-panel" aria-label="学习路径">
-      <article class="path">
-        <h3>路径一：面向任务设计课程</h3>
-        <ol>
-          <li>判断学习者需要用中文完成什么真实任务。</li>
-          <li>分析目标情景、当前水平和能力差距。</li>
-          <li>从真实语料中提取词汇、句式、语篇和交际策略。</li>
-          <li>设计学习目标、课堂活动和表现性评价。</li>
-        </ol>
-      </article>
-      <article class="path">
-        <h3>路径二：面向情境调整方案</h3>
-        <ol>
-          <li>判断中文课程在对象国教育体系中的位置。</li>
-          <li>评估政策制度、师资资源、语言生态和社会需求。</li>
-          <li>处理通用标准、课程大纲和评价制度的衔接。</li>
-          <li>建立资源支持、主体协同和持续改进机制。</li>
-        </ol>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="concepts" aria-labelledby="concepts-title">
-    <div class="section-head">
-      <div>
-        <p class="section-kicker">模块二</p>
-        <h2 id="concepts-title">概念释义</h2>
-        <p class="section-note">以下概念用于辅助阅读正文，重点理解它们之间的层级、边界和应用场景。</p>
-      </div>
-      <div class="section-index">02</div>
-    </div>
-
-    <div class="terms-grid">
-      <article class="term">
-        <span class="label">CSP</span>
-        <h3>专门用途中文</h3>
-        <p>面向特定学术、职业或行业目标，培养学习者用中文完成具体任务的教学取向。</p>
-      </article>
-      <article class="term">
-        <span class="label">定位</span>
-        <h3>通道课程</h3>
-        <p>不替代专业课，也不堆砌术语，而是帮助学习者通过中文进入专业学习或岗位实践。</p>
-      </article>
-      <article class="term">
-        <span class="label">项目</span>
-        <h3>“中文+”</h3>
-        <p>中文教育与专业、技能、职业教育等融合发展的项目形态，中文常具有工具语言属性。</p>
-      </article>
-      <article class="term">
-        <span class="label">起点</span>
-        <h3>需求分析</h3>
-        <p>分析学习者未来要用中文做什么、现在能做到什么、怎样达到目标。</p>
-      </article>
-      <article class="term">
-        <span class="label">材料</span>
-        <h3>真实语料</h3>
-        <p>来自真实或高度仿真的行业文本、岗位话语、课堂材料和交际文本。</p>
-      </article>
-      <article class="term">
-        <span class="label">方法</span>
-        <h3>逆向设计</h3>
-        <p>先确定真实任务和评价证据，再安排语言学习、课堂活动和资源支持。</p>
-      </article>
-      <article class="term">
-        <span class="label">视角</span>
-        <h3>区域国别中文教育</h3>
-        <p>从具体国家或区域的制度、语言生态、社会文化、资源和需求出发理解中文教育。</p>
-      </article>
-      <article class="term">
-        <span class="label">转化</span>
-        <h3>本土化</h3>
-        <p>使课程目标、内容组织、评价方式和保障机制适应对象国教育环境与真实使用场景。</p>
-      </article>
-    </div>
-  </section>
-
   <section class="section" id="activities" aria-labelledby="activities-title">
     <div class="section-head">
       <div>
-        <p class="section-kicker">模块三</p>
+        <p class="section-kicker">模块一</p>
         <h2 id="activities-title">课堂活动</h2>
-        <p class="section-note">活动可用于课堂讨论、小组汇报或课后作业。每个活动都对应正文中的一个核心方法。</p>
+        <p class="section-note">活动可用于课堂讨论、小组汇报或课后作业。参考答案为示例要点，可根据具体国家、行业和学习者情况调整。</p>
       </div>
-      <div class="section-index">03</div>
+      <div class="section-index">01</div>
     </div>
 
     <div class="grid two">
@@ -708,13 +658,35 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <ol>
-            <li>泰国职业院校酒店管理专业开设“酒店前台中文”。</li>
-            <li>某大学面向所有专业学生开设“中级汉语综合课”。</li>
-            <li>海外中资企业为本地员工开设“生产线交接班中文”。</li>
-            <li>职业院校开设“中文+新能源汽车维修”合作项目。</li>
-            <li>来华医学留学生学习“临床问诊中文”。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-1-question" name="activity-1-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-1-answer" name="activity-1-view">
+            <div class="tab-controls" aria-label="活动1内容切换">
+              <label class="tab-label-question" for="activity-1-question">题目</label>
+              <label class="tab-label-answer" for="activity-1-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <ol>
+                <li>泰国职业院校酒店管理专业开设“酒店前台中文”。</li>
+                <li>某大学面向所有专业学生开设“中级汉语综合课”。</li>
+                <li>海外中资企业为本地员工开设“生产线交接班中文”。</li>
+                <li>职业院校开设“中文+新能源汽车维修”合作项目。</li>
+                <li>来华医学留学生学习“临床问诊中文”。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例）</h4>
+                <ol>
+                  <li>专门用途中文中的行业用途中文，中文主要是目标语言，课程服务酒店接待任务。</li>
+                  <li>通用中文教学，中文是目标语言，重点是综合语言能力而非特定岗位任务。</li>
+                  <li>专门用途中文中的职业/岗位中文，中文主要是目标语言，围绕生产线交接班这一真实任务组织内容。</li>
+                  <li>“中文+”项目，中文多具有工具语言属性，服务新能源汽车维修技能学习和职业教育合作。</li>
+                  <li>专门用途中文中的学术/医学用途中文，中文是目标语言，服务医学学习和临床沟通任务。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -727,12 +699,32 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <p>小王，24岁，泰国人，中文水平三级，刚入职一家驻泰中资电商公司。他每天需要用中文与中国同事沟通订单，每周参加一次线上会议并汇报进度，偶尔要翻译产品说明。他最担心汉字书写，但愿意利用碎片时间听中文材料。</p>
-          <ol>
-            <li>列出课程设计还需要补充了解的信息。</li>
-            <li>判断小王当前中文能力与岗位任务之间的主要差距。</li>
-            <li>写出一条可观察、可评价的课程目标。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-2-question" name="activity-2-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-2-answer" name="activity-2-view">
+            <div class="tab-controls" aria-label="活动2内容切换">
+              <label class="tab-label-question" for="activity-2-question">题目</label>
+              <label class="tab-label-answer" for="activity-2-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <p>小王，24岁，泰国人，中文水平三级，刚入职一家驻泰中资电商公司。他每天需要用中文与中国同事沟通订单，每周参加一次线上会议并汇报进度，偶尔要翻译产品说明。他最担心汉字书写，但愿意利用碎片时间听中文材料。</p>
+              <ol>
+                <li>列出课程设计还需要补充了解的信息。</li>
+                <li>判断小王当前中文能力与岗位任务之间的主要差距。</li>
+                <li>写出一条可观察、可评价的课程目标。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例）</h4>
+                <ol>
+                  <li>还需了解订单沟通的具体渠道、会议语言比例、常见产品类型、中文同事反馈、岗位文本样本、可用课时和企业考核要求。</li>
+                  <li>主要差距可能不在日常会话，而在电商订单术语、线上会议汇报、产品说明理解与转述、正式工作语体和跨文化协作表达。</li>
+                  <li>课程目标示例：完成课程后，学习者能够用中文在3分钟内汇报订单进度，说明已完成事项、待处理问题和下一步安排，并能回答同事的2个追问。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -745,12 +737,32 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <p>任选“酒店入住接待”“商务询盘邮件”或“医学问诊”之一，完成下列分析。</p>
-          <ol>
-            <li>列出任务流程和交际对象。</li>
-            <li>提取核心词语、句式、语篇结构和语用要求。</li>
-            <li>设计一项可以证明学习结果的表现性评价。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-3-question" name="activity-3-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-3-answer" name="activity-3-view">
+            <div class="tab-controls" aria-label="活动3内容切换">
+              <label class="tab-label-question" for="activity-3-question">题目</label>
+              <label class="tab-label-answer" for="activity-3-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <p>任选“酒店入住接待”“商务询盘邮件”或“医学问诊”之一，完成下列分析。</p>
+              <ol>
+                <li>列出任务流程和交际对象。</li>
+                <li>提取核心词语、句式、语篇结构和语用要求。</li>
+                <li>设计一项可以证明学习结果的表现性评价。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例：酒店入住接待）</h4>
+                <ol>
+                  <li>流程：问候客人、确认预订、核对证件、说明房型与费用、告知早餐/退房时间、发放房卡、回应问题。交际对象主要是住客、同行人和酒店同事。</li>
+                  <li>核心词语包括预订、房型、押金、早餐、退房、房卡；常用句式包括“请您出示……”“您的房间是……”“如果需要……可以……”；语篇结构通常为问候、核对、说明、确认、结束；语用要求是礼貌、清楚、耐心并能处理简单追问。</li>
+                  <li>表现性评价：两人一组完成前台入住角色扮演，评价证据包括信息核对是否准确、服务流程是否完整、表达是否得体、能否回应客人至少两个问题。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -763,11 +775,31 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <ol>
-            <li>写出一条以“我能”开头的学习目标。</li>
-            <li>设计一项表现性评价任务。</li>
-            <li>列出3个课堂活动，并说明每个活动对应的语言内容。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-4-question" name="activity-4-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-4-answer" name="activity-4-view">
+            <div class="tab-controls" aria-label="活动4内容切换">
+              <label class="tab-label-question" for="activity-4-question">题目</label>
+              <label class="tab-label-answer" for="activity-4-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <ol>
+                <li>写出一条以“我能”开头的学习目标。</li>
+                <li>设计一项表现性评价任务。</li>
+                <li>列出3个课堂活动，并说明每个活动对应的语言内容。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例）</h4>
+                <ol>
+                  <li>学习目标：我能用中文完成酒店前台入住接待，准确核对预订信息，说明房间、押金、早餐和退房时间，并礼貌回应客人常见问题。</li>
+                  <li>表现性评价：学生与同伴进行3分钟入住接待角色扮演，教师用量表评价信息准确性、流程完整性、语言得体性和应答能力。</li>
+                  <li>课堂活动可包括：听前台录音并排序，训练流程表达；填写入住登记信息，训练姓名、证件、日期和房型表达；角色扮演处理入住与追问，训练礼貌请求、说明和确认。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -780,12 +812,32 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <p>某中资手机制造企业在越南的工厂准备开设“生产线中文”培训。</p>
-          <ol>
-            <li>分别列出语言教师、专业教师和车间主管应提供的信息。</li>
-            <li>判断该课程更适合任务型课程、内容依托课程还是短期速成模式。</li>
-            <li>设计一项岗位任务，并说明评价证据。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-5-question" name="activity-5-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-5-answer" name="activity-5-view">
+            <div class="tab-controls" aria-label="活动5内容切换">
+              <label class="tab-label-question" for="activity-5-question">题目</label>
+              <label class="tab-label-answer" for="activity-5-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <p>某中资手机制造企业在越南的工厂准备开设“生产线中文”培训。</p>
+              <ol>
+                <li>分别列出语言教师、专业教师和车间主管应提供的信息。</li>
+                <li>判断该课程更适合任务型课程、内容依托课程还是短期速成模式。</li>
+                <li>设计一项岗位任务，并说明评价证据。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例）</h4>
+                <ol>
+                  <li>语言教师提供学习者中文水平、语言难点和课堂活动设计；专业教师提供生产流程、设备名称和岗位规范；车间主管提供真实沟通场景、常见指令、安全要求和工作评价标准。</li>
+                  <li>若目标是尽快完成岗位沟通，更适合任务型课程或短期速成模式；若还要系统学习生产知识，可加入内容依托课程。企业岗前培训通常以任务型短训为主。</li>
+                  <li>岗位任务示例：用中文完成一次交接班说明，包含产量、设备状态、异常情况和注意事项。评价证据包括交接信息是否完整准确、关键术语是否正确、表达是否清楚、能否回应主管追问。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -798,11 +850,31 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <ol>
-            <li>收集政策制度、课程体系、学习者结构、师资资源、语言生态和社会需求等信息。</li>
-            <li>判断哪些证据可靠，哪些信息还需要访谈、问卷或课堂观察补充。</li>
-            <li>用3句话说明这些证据对课程目标或课堂实施的影响。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-6-question" name="activity-6-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-6-answer" name="activity-6-view">
+            <div class="tab-controls" aria-label="活动6内容切换">
+              <label class="tab-label-question" for="activity-6-question">题目</label>
+              <label class="tab-label-answer" for="activity-6-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <ol>
+                <li>收集政策制度、课程体系、学习者结构、师资资源、语言生态和社会需求等信息。</li>
+                <li>判断哪些证据可靠，哪些信息还需要访谈、问卷或课堂观察补充。</li>
+                <li>用3句话说明这些证据对课程目标或课堂实施的影响。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例：以泰国职业中文课程为例）</h4>
+                <ol>
+                  <li>可收集职业院校课程文件、中文课程课时、学生中文水平、教师背景、旅游与中资企业岗位需求、学校合作企业资料等。</li>
+                  <li>政策文件、课程大纲和企业岗位说明较可靠；学习者动机、真实中文使用频率、课堂困难和企业对中文能力的具体期待，需要通过访谈、问卷和课堂观察补充。</li>
+                  <li>如果课时有限，课程目标应聚焦高频岗位任务而非完整语言体系。若学生基础差异大，课堂活动需要分层任务和模板支持。若本地旅游或产业需求强，评价应加入真实接待、岗位说明或企业情境模拟。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -815,11 +887,31 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <ol>
-            <li>说明《国际中文教育中文水平等级标准》能提供哪些参照。</li>
-            <li>选择一种课程或考试文件，如IB中文、AP中文、A-level中文或IGCSE中文，分析其评价要求。</li>
-            <li>设计一条课程目标，说明它如何体现中文能力发展和对象国课程要求。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-7-question" name="activity-7-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-7-answer" name="activity-7-view">
+            <div class="tab-controls" aria-label="活动7内容切换">
+              <label class="tab-label-question" for="activity-7-question">题目</label>
+              <label class="tab-label-answer" for="activity-7-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <ol>
+                <li>说明《国际中文教育中文水平等级标准》能提供哪些参照。</li>
+                <li>选择一种课程或考试文件，如IB中文、AP中文、A-level中文或IGCSE中文，分析其评价要求。</li>
+                <li>设计一条课程目标，说明它如何体现中文能力发展和对象国课程要求。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例）</h4>
+                <ol>
+                  <li>《国际中文教育中文水平等级标准》可为音节、汉字、词汇、语法、话题任务和听说读写能力等级提供参照，帮助确定学习起点和目标难度。</li>
+                  <li>以AP中文为例，其评价通常重视听说读写综合运用和文化沟通能力，要求学习者能理解材料、表达观点并在交际任务中完成信息交换。</li>
+                  <li>课程目标示例：学习者能够阅读一则关于中国节日或校园生活的短文，提取主要信息，并用中文进行1分钟口头比较，说明本地文化与中国文化的一项相同点和一项差异。该目标既体现中文理解与表达能力，也回应课程文件中对文化比较和交际表现的要求。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -832,11 +924,31 @@ li::marker{color:var(--teal-deep);font-weight:800}
           </div>
         </summary>
         <div class="content">
-          <ol>
-            <li>列出通用教材中可以直接使用、需要改编和需要补充的内容。</li>
-            <li>说明本土教师、中方教师、学校、社区、企业或合作机构的分工。</li>
-            <li>设计一条“实施、反馈、修订、再实施”的课程改进路径。</li>
-          </ol>
+          <div class="activity-tabs">
+            <input class="tab-input tab-question" type="radio" id="activity-8-question" name="activity-8-view" checked>
+            <input class="tab-input tab-answer" type="radio" id="activity-8-answer" name="activity-8-view">
+            <div class="tab-controls" aria-label="活动8内容切换">
+              <label class="tab-label-question" for="activity-8-question">题目</label>
+              <label class="tab-label-answer" for="activity-8-answer">参考答案</label>
+            </div>
+            <div class="tab-panel activity-question">
+              <ol>
+                <li>列出通用教材中可以直接使用、需要改编和需要补充的内容。</li>
+                <li>说明本土教师、中方教师、学校、社区、企业或合作机构的分工。</li>
+                <li>设计一条“实施、反馈、修订、再实施”的课程改进路径。</li>
+              </ol>
+            </div>
+            <div class="tab-panel activity-answer">
+              <div class="answer">
+                <h4>参考答案（示例）</h4>
+                <ol>
+                  <li>可直接使用基础语音、常用交际句式和通用话题；需要改编人物、场景、货币、地名、课堂任务和评价方式；需要补充对象国案例、行业文本、本地学生常见错误和真实岗位材料。</li>
+                  <li>本土教师负责学习者分析和课堂实施，中方教师负责中文语言资源与师资支持，学校负责课时与评价制度，社区或企业提供真实场景、实习任务和反馈。</li>
+                  <li>改进路径示例：先试用一个单元并收集学生作品、课堂观察和合作方反馈；再根据任务难度、语言负荷和评价结果修订材料；随后扩大到多个班级继续实施，并建立定期反馈和版本更新机制。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </details>
     </div>
@@ -845,11 +957,11 @@ li::marker{color:var(--teal-deep);font-weight:800}
   <section class="section" id="review" aria-labelledby="review-title">
     <div class="section-head">
       <div>
-        <p class="section-kicker">模块四</p>
+        <p class="section-kicker">模块二</p>
         <h2 id="review-title">复习指南</h2>
-        <p class="section-note">复习时可按“主线、方法、误区”三个层次回到正文。</p>
+        <p class="section-note">复习时可按“主线、方法、误区”三个层次回到正文，并用自测题检查能否迁移到具体案例。</p>
       </div>
-      <div class="section-index">04</div>
+      <div class="section-index">02</div>
     </div>
 
     <div class="review-grid">
@@ -879,9 +991,55 @@ li::marker{color:var(--teal-deep);font-weight:800}
       </article>
     </div>
 
+    <div class="grid two" style="margin-top:18px" aria-label="复习自测与参考答案">
+      <details class="review-block self-check">
+        <summary>
+          <h3>自测题1：如何区分专门用途中文与“中文+”？</h3>
+          <p>请从中文角色、课程重心和评价证据三个角度作答。</p>
+        </summary>
+        <div class="answer">
+          <h4>参考答案</h4>
+          <p>专门用途中文通常把中文作为目标语言，课程重心是学习者如何用中文完成特定学术、职业或行业任务，评价证据多为中文交际表现，如汇报、邮件、问诊或接待。“中文+”更强调中文与专业、技能或职业教育的融合，中文常具有工具语言属性，评价既看中文使用，也看专业或职业任务完成情况。</p>
+        </div>
+      </details>
+
+      <details class="review-block self-check">
+        <summary>
+          <h3>自测题2：为什么需求分析不能只问学习者“想学什么”？</h3>
+          <p>请结合目标情景、能力差距和学习期待说明。</p>
+        </summary>
+        <div class="answer">
+          <h4>参考答案</h4>
+          <p>学习期待只能反映学习者主观愿望，课程设计还要分析目标情景中客观需要完成的任务，以及学习者现有能力与目标要求之间的差距。有效的需求分析应同时考察岗位或学术任务、真实语料、学习者水平、教学条件和学习期待，避免把课程变成零散愿望清单。</p>
+        </div>
+      </details>
+
+      <details class="review-block self-check">
+        <summary>
+          <h3>自测题3：区域国别中文教育为什么不能写成对象国概况？</h3>
+          <p>请说明“概况材料”怎样转化为课程设计依据。</p>
+        </summary>
+        <div class="answer">
+          <h4>参考答案</h4>
+          <p>对象国概况只是背景材料，区域国别中文教育更关心这些材料如何影响课程落地。政策制度会影响课程地位和课时，语言生态会影响学习难点和媒介语言，学习者结构会影响目标分层，师资资源会影响教学组织，社会需求会影响任务选择和评价方式。因此，关键是把情境证据转化为课程定位、目标、内容、活动和评价方案。</p>
+        </div>
+      </details>
+
+      <details class="review-block self-check">
+        <summary>
+          <h3>自测题4：怎样判断一个本土化方案是否有效？</h3>
+          <p>请至少列出三个判断依据。</p>
+        </summary>
+        <div class="answer">
+          <h4>参考答案</h4>
+          <p>可以从以下方面判断：课程目标是否回应本地制度和真实需求；教学内容是否包含本地场景、真实语料和学习者常见困难；课堂活动是否能支持学习者完成目标任务；评价方式是否能呈现可观察的中文使用表现；师资、资源和合作机制是否能支持课程持续实施和反馈修订。</p>
+        </div>
+      </details>
+    </div>
+
     <aside class="closing-panel">
       <h2>使用建议</h2>
-      <p>课堂教学中，可先用“概念释义”完成快速导入，再选择一项“课堂活动”组织小组讨论。课后复习时，可按“学习路径”和“复习指南”检查自己是否能够从真实任务和对象国情境出发解释中文课程设计。</p>
+      <p>课堂教学中，可直接选择一项“课堂活动”组织小组讨论，参考答案用于核对分析思路，不作为唯一答案。课后复习时，可按“复习指南”检查自己是否能够从真实任务和对象国情境出发解释中文课程设计。</p>
     </aside>
   </section>
 </main>
