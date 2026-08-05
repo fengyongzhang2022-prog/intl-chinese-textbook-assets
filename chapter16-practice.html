@@ -185,9 +185,9 @@ footer{background:var(--dark);color:#bcb8b0}
 </header>
 <nav class="topnav" aria-label="页面导航">
   <div class="nav-inner">
-    <a class="active" href="#judge" data-module="judge" aria-current="page">01 判断与辨析</a>
-    <a href="#workshop" data-module="workshop">02 情境工作坊</a>
-    <a href="#capstone" data-module="capstone">03 综合任务</a>
+    <a class="active" href="#judge" data-module="judge" aria-current="page">01 判断题</a>
+    <a href="#workshop" data-module="workshop">02 情境题</a>
+    <a href="#capstone" data-module="capstone">03 综合运用</a>
   </div>
 </nav>
 <main id="main">
@@ -195,7 +195,7 @@ footer{background:var(--dark);color:#bcb8b0}
     <div>
       <p class="section-label">练习目标</p>
       <h2 id="orientation-title">从“记住框架”转向“作出判断”</h2>
-      <p>本章的分类帮助教师组织知识，具体问题常常同时涉及学习、教学、评价和运行条件。练习因此把重点放在三种能力上：识别结论的证据边界，针对具体学习者设计教育安排，并说明教师、机构与技术系统各自需要承担什么责任。</p>
+      <p>练习围绕八个问题展开：谁在学、学什么、怎么学、学得怎样；谁来教、教什么、怎么教、教得怎样。判断题先检查概念边界，情境题再处理具体教育问题，最后从一个具体成果讨论学科边界与未来发展。</p>
     </div>
     <aside class="howto" aria-label="使用方法">
       <ol>
@@ -212,10 +212,10 @@ footer{background:var(--dark);color:#bcb8b0}
         <p class="section-label">Module 01</p>
         <h2 id="judge-title">判断与辨析</h2>
       </div>
-      <p>选择“成立”或“不成立”。反馈关注的不是答案标签，而是研究结论的适用范围、证据类型和教育条件。</p>
+      <p>选择“成立”或“不成立”。反馈关注结论的适用范围、证据类型和教育条件。</p>
     </header>
     <div class="progress-line" aria-live="polite">
-      <span id="progressText">已完成 0 / 14</span>
+      <span id="progressText">已完成 0 / 6</span>
       <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
     </div>
     <div class="judgement-list" id="judgementList"></div>
@@ -233,7 +233,7 @@ footer{background:var(--dark);color:#bcb8b0}
         <p class="section-label">Module 02</p>
         <h2 id="workshop-title">情境工作坊</h2>
       </div>
-      <p>六个案例分别来自习得研究、混合班教学、学校课程、智能评价、学习衔接与社区项目。先完成任务，再展开参考分析。</p>
+      <p>三个案例分别处理课程进入学校、智能评价和学习衔接。先完成任务，再展开参考分析。</p>
     </header>
     <div class="case-picker" id="casePicker" aria-label="案例选择"></div>
     <div class="case-list" id="caseList"></div>
@@ -243,39 +243,37 @@ footer{background:var(--dark);color:#bcb8b0}
     <header class="section-head">
       <div>
         <p class="section-label">Module 03</p>
-        <h2 id="capstone-title">课程决策单</h2>
+      <h2 id="capstone-title">综合运用</h2>
       </div>
-      <p>根据同一组明确条件作出课程决策。每一项决定都要对应学习者证据、实施条件或可能后果。</p>
+      <p>从正文提到的具体成果出发，说明它解决了什么问题、边界在哪里，以及未来还需要什么证据。</p>
     </header>
     <div class="capstone-brief">
-      <h3>任务情境：十六周中学中文选修课</h3>
-      <p>某城市公立中学准备开设一学期中文选修课。你是课程负责人，需要在下列条件内提交可实施方案。</p>
+      <h3>开放任务：从一个成果看学科边界与未来</h3>
+      <p>任选正文提到的一项具体成果，完成一份专业判断说明。可选择水平标准、学习者语料库、教材评价标准、教师专业能力标准、数字平台、语音查询系统或其他具体成果。</p>
       <ul>
-        <li>24名十五至十六岁学生</li>
-        <li>8人口语较强、识字较弱</li>
-        <li>16人为中文零起点</li>
-        <li>16周，每周两次，每次45分钟</li>
-        <li>期末完成社区访问与双语展示</li>
-        <li>一名中文教师，可使用共享平板</li>
-        <li>校方拟试用尚未审查的智能反馈平台</li>
-        <li>课程成绩计入校内选修学分</li>
+        <li>它回应了什么实际教育问题</li>
+        <li>它主要作用于八个问题中的哪一项</li>
+        <li>它依靠了哪些中文教育材料或实践</li>
+        <li>它形成了什么可复用的专业知识或工具</li>
+        <li>它能说明什么，不能说明什么</li>
+        <li>未来需要补充什么证据、制度或研究</li>
       </ul>
     </div>
     <div class="capstone">
       <div>
         <h3>提交内容</h3>
-        <p>用600—800字完成七项决定。可先在下方记录要点。</p>
-        <textarea class="worksheet" aria-label="课程决策单草稿" placeholder="1. 入学诊断：用什么任务确认两类学习者的起点？&#10;2. 课程目标：写出2项共同目标和各1项分层目标。&#10;3. 内容序列：把16周划分为4个阶段，每阶段解决什么问题？&#10;4. 核心任务：社区访问与双语展示需要哪些语言、文化和协作准备？&#10;5. 学习支持：怎样分组，怎样使用教材、社区与数字资源？&#10;6. 评价与技术：收集哪些过程和结果证据？智能反馈可以做什么，由谁复核？&#10;7. 修订依据：出现什么证据时，你会调整目标、进度或支持方式？"></textarea>
+        <p>用600—800字完成六项分析。可先在下方记录要点。</p>
+        <textarea class="worksheet" aria-label="综合运用草稿" placeholder="1. 成果回应的实际问题：&#10;2. 它影响八个问题中的哪一项，怎样影响其他问题？&#10;3. 中文材料、学习者、课堂、教材、考试或项目证据：&#10;4. 可复用的知识、工具或制度安排：&#10;5. 适用边界：能说明什么，不能说明什么？&#10;6. 面向未来还需要的证据、制度或研究："></textarea>
       </div>
       <div>
         <h3>提交前自检</h3>
         <ul class="rubric">
-          <li><input type="checkbox" id="r1"><label for="r1">诊断任务能够分别观察口语、识字和学习需求。</label></li>
-          <li><input type="checkbox" id="r2"><label for="r2">共同目标与分层目标都能在16周内观察和评价。</label></li>
-          <li><input type="checkbox" id="r3"><label for="r3">四阶段内容序列为期末真实任务提供逐步支架。</label></li>
-          <li><input type="checkbox" id="r4"><label for="r4">两类学习者都有实质参与机会和具有挑战性的任务。</label></li>
-          <li><input type="checkbox" id="r5"><label for="r5">智能反馈的用途、人工复核和数据保护已经写清。</label></li>
-          <li><input type="checkbox" id="r6"><label for="r6">过程证据、期末表现和后续使用分别有观察办法。</label></li>
+          <li><input type="checkbox" id="r1"><label for="r1">指出了成果回应的具体中文教育问题。</label></li>
+          <li><input type="checkbox" id="r2"><label for="r2">明确说明它对应的八要素位置及其影响范围。</label></li>
+          <li><input type="checkbox" id="r3"><label for="r3">给出了中文材料、教育实践或制度来源。</label></li>
+          <li><input type="checkbox" id="r4"><label for="r4">区分了成果能够支持的判断和超出范围的判断。</label></li>
+          <li><input type="checkbox" id="r5"><label for="r5">提出了具体的未来证据、制度或研究需求。</label></li>
+          <li><input type="checkbox" id="r6"><label for="r6">全文围绕一个成果展开，分析线索前后一致。</label></li>
         </ul>
       </div>
     </div>
@@ -475,6 +473,37 @@ document.getElementById('prevQuestion').addEventListener('click',()=>showQuestio
 document.getElementById('nextQuestion').addEventListener('click',()=>showQuestion(currentQuestion+1));
 document.getElementById('resetJudge').addEventListener('click',()=>{answered=new Set();currentQuestion=0;renderJudgements();});
 
+/* 练习内容：按新版正文收束为六道判断题、三个情境和一个开放综合题。 */
+judgements.splice(0,judgements.length,...[
+  {text:'等级标准中的初级项目，既可以作为教材排序依据，也意味着学习者应在初级阶段完成掌握。',answer:false,note:'标准、课程与发展',explain:'不成立。等级标准提供共同参照，教材排序还要结合学习者、用途、课时和内容关系；标准分级也不能直接等同于个体习得阶段。'},
+  {text:'学习者能够在单句判断中识别某个语法形式，就可以说明该形式已经进入稳定交际能力。',answer:false,note:'知识与使用',explain:'不成立。理解、受控产出和真实交往中的使用可能处于不同状态，还需观察句群、篇章和任务中的稳定表现。'},
+  {text:'同一考试前后分数提高，结合课程目标、课堂过程和任务表现，可以支持课程成效判断。',answer:true,note:'学习评价',explain:'成立。分数提高提供了部分结果证据，课程目标、实施过程和真实任务表现共同决定结论的解释范围。'},
+  {text:'教师证书、学历和教龄能够共同代表教师在不同中文课程中的实际教学能力。',answer:false,note:'教师能力',explain:'不成立。证书、学历和教龄只能说明部分经历，教学转化、课堂判断和情境适应仍需设计、实施、反馈与反思证据。'},
+  {text:'教材增加自然语料后，课程内容就一定更适合学习者。',answer:false,note:'教材内容',explain:'不成立。自然度还要同可理解性、学习负担、语体适切性、学习目标和学习者条件结合判断。'},
+  {text:'数字平台的自动评分与教师评分一致，就可以直接用于分班和资格认定。',answer:false,note:'评价与责任',explain:'不成立。高影响使用还要检验构念覆盖、群体公平、任务效度、人工复核、申诉机制和数据责任。'}
+]);
+
+cases.splice(0,cases.length,...[
+  {
+    code:'CASE 01 · 课程进入',title:'中文怎样进入当地中学',meta:'课程衔接 · 师资条件 · 评价用途',
+    scenario:`<p>一所当地中学准备开设中文。学校有两种方案：进入正式课程，每周两课时，由本土教师负责，目标与当地考试衔接；或作为社区项目，每周一课时，由外派教师和社区教师合作，重点服务日常交往和文化活动。学校只能先试行一种方案。</p>`,
+    tasks:['根据学习者、学习用途、教师条件、课程制度和社会使用需求，选择一种方案。','说明方案运行所需的三项最低条件。','试行一年后，用什么证据决定继续、调整或更换方案？'],
+    analysis:`<p>选择应回到课程用途、学习者、教师与制度条件的组合关系。正式课程更便于形成学分与考试衔接，社区项目更便于连接真实交往；两种安排都需要明确目标、资源和评价用途。</p><div class="analysis-grid"><div><h5>最低条件</h5><p>明确学习对象与成果、稳定师资与教材资源、学校或社区认可的运行和评价安排。</p></div><div><h5>试点证据</h5><p>同时记录学习表现、课堂实施、教师支持、参与稳定性和制度反馈，再决定课程是否扩大。</p></div></div>`
+  },
+  {
+    code:'CASE 02 · 智能评价',title:'口语系统总把她判错',meta:'构念覆盖 · 人工复核 · 教育责任',
+    scenario:`<p>一款口语练习系统对多数学生反馈稳定，却经常把三名学生的声调判错。教师发现三人带有相似地区口音。平台只显示总分，不提供错误片段，也没有复核和申诉入口。学校准备把系统成绩计入期末成绩。</p>`,
+    tasks:['现有信息能够支持哪些判断？还要收集什么数据？','系统在修复前可以承担哪些功能，哪些结果暂缓使用？','教师、学校和平台分别需要采取什么行动？'],
+    analysis:`<p>应比较人工评分、系统评分和原始录音，检查偏差是否集中于特定音节、任务和群体，并核查训练数据与评分阈值。</p><div class="analysis-grid"><div><h5>使用边界</h5><p>系统可提供低风险练习提示；在可靠性和群体差异得到检验前，不宜直接承担分班或资格判断。</p></div><div><h5>责任安排</h5><p>教师负责复核与解释，学校负责成绩用途和申诉，平台负责记录、透明说明、偏差修正与数据保护。</p></div></div>`
+  },
+  {
+    code:'CASE 03 · 学程衔接',title:'证书之后，中断两年',meta:'能力保持 · 先前学习 · 工作场景',
+    scenario:`<p>一名成人学习者两年前通过中级水平考试，此后很少使用中文。现在需要在三个月后接待中国客户。在线分级测试显示阅读保持较好，听说速度明显下降；他每周只能学习四小时，工作中可以接触真实邮件和会议材料。</p>`,
+    tasks:['如何判断其当前能力，而不只依据旧证书或一次分级成绩？','三个月课程怎样利用先前学习和真实工作材料？','课程结束时怎样考察实际使用、能力保持和任务迁移？'],
+    analysis:`<p>先用多任务诊断区分保留能力、暂时提取困难和新的工作需求。有限课时应集中到会议理解、即时回应、礼貌协商和专业词语，并用真实材料建立工作与课堂之间的联系。</p><div class="analysis-grid"><div><h5>学习路径</h5><p>设置短周期目标、听说练习、工作场景模拟和间隔复习，让已有阅读能力为听说恢复提供支架。</p></div><div><h5>结果证据</h5><p>除结课测验外，记录真实会议任务、延时表现和工作中的实际使用，判断课程是否支持后续发展。</p></div></div>`
+  }
+]);
+
 const caseList=document.getElementById('caseList');
 caseList.innerHTML=cases.map((c,i)=>`
   <article class="case" ${i===0?'':'hidden'} data-case="${i}">
@@ -531,4 +560,3 @@ showModule('judge',false);
 </script>
 </body>
 </html>
-
